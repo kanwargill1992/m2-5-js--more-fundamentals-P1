@@ -12,12 +12,28 @@
 // f(["foo", -1]) // ""
 
 function repeat(arr) {
-  // Your code here
-}
+  const str = arr[0];
+  const num = arr[1];
 
+  if (typeof str !== "string" || typeof num !== "number") return undefined;
+
+  if (num <= 0) return "";
+
+  let sum = "";
+  for (i = 0; i < num; i++) {
+    sum += str;
+  }
+  return sum;
+}
 // We need 7 test cases.
 // Don't forget to test all of the question parameters
-
+expect(repeat(["foo", 2]), "foofoo");
+expect(repeat(["bacon", 1]), "bacon");
+expect(repeat(["buzz", 0]), "");
+expect(repeat(["fuzz", -2]), "");
+expect(repeat(["fuzzbuzz", "fuzzbuzz"]), undefined);
+expect(repeat([2, 2]), undefined);
+expect(repeat(["foo", "foo"]), undefined);
 /**
  * -------------------------------------------------------------------
  * ⚠️ No changes necessary below. ⚠️
@@ -25,7 +41,7 @@ function repeat(arr) {
  */
 function expect(result, value) {
   if (result === value) {
-    console.log('✅ Test succeeded');
+    console.log("✅ Test succeeded");
   } else {
     console.log(`⛔️ Expected “${result}” to equal “${value}”`);
   }
