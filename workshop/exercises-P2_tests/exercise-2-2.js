@@ -8,7 +8,11 @@
 // - If it's a number, return `undefined`
 
 function lastCharacter(str) {
-  if (str.charAt(str.length - 1) === "") return undefined;
+  if (
+    isNaN(str.charAt(str.length - 1)) === false ||
+    str.charAt(str.length - 1) === ""
+  )
+    return undefined;
   return str.charAt(str.length - 1);
 }
 
@@ -21,7 +25,7 @@ expect(lastCharacter("becon"), "n");
 expect(lastCharacter("ninja42"), undefined);
 expect(lastCharacter("kanwar"), "r");
 expect(lastCharacter("montreal514"), undefined);
-expect(lastCharacter("concordia", "a"));
+expect(lastCharacter("concordia"), "a");
 
 // Add 4 more test cases here!
 // 🌠 NOTE 🌠
